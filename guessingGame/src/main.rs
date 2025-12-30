@@ -16,7 +16,11 @@ pub fn main() {
             .expect("Failed to read line");
         let guess: u32 = match guess.trim().parse(){
             Ok(num) => num,
-            Err(_) => continue,
+            Err(_) => {
+                println!("Enter a number only!! ");
+                number_of_guesses-=1;
+                continue;
+            }
         };
 
         // println!("Your guess :{guess}");
@@ -29,7 +33,8 @@ pub fn main() {
             }
         }
     }
-    println!("Number of Guesses used : {number_of_guesses}");
-    println!("Secret Number was : {secret_number}");
+
+    println!("\n\nNumber of Guesses used : {number_of_guesses}");
+    println!("Secret Number was : {secret_number}\n\n");
 }
 
